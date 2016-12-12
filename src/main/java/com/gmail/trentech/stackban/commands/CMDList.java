@@ -38,6 +38,7 @@ public class CMDList implements CommandExecutor {
 			list.add(Text.of(TextColors.YELLOW, "  - pickup: ", TextColors.WHITE, item.getValue().getNode("pickup").getBoolean()));
 			list.add(Text.of(TextColors.YELLOW, "  - place: ", TextColors.WHITE, item.getValue().getNode("place").getBoolean()));
 			list.add(Text.of(TextColors.YELLOW, "  - use: ", TextColors.WHITE, item.getValue().getNode("use").getBoolean()));
+			list.add(Text.of(TextColors.YELLOW, "  - reason: ", TextColors.WHITE, item.getValue().getNode("reason").getValue()));
 		}
 
 		if (src instanceof Player) {

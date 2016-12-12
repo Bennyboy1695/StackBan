@@ -12,7 +12,7 @@ public class CommandManager {
 	private CommandSpec cmdSet = CommandSpec.builder()
 			.permission("stackban.cmd.sban.set")
 			.arguments(new WorldElement(Text.of("world")), new ItemElement(Text.of("itemType[:id]")),
-					GenericArguments.flags().flag("break", "craft", "drop", "hold", "modify", "pickup", "place", "use").setAcceptsArbitraryLongFlags(true).buildWith(GenericArguments.none()))
+					GenericArguments.flags().flag("break", "craft", "drop", "hold", "modify", "pickup", "place", "use", "reason").setAcceptsArbitraryLongFlags(true).buildWith(GenericArguments.none()))
 			.executor(new CMDSet())
 			.build();
 

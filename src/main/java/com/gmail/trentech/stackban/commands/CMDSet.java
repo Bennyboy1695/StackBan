@@ -31,6 +31,7 @@ public class CMDSet implements CommandExecutor {
 		config.getNode("items", itemType, "pickup").setValue(args.hasAny("pickup"));
 		config.getNode("items", itemType, "drop").setValue(args.hasAny("drop"));
 		config.getNode("items", itemType, "hold").setValue(args.hasAny("hold"));
+		config.getNode("items", itemType, "reason").setValue(args.hasAny("reason"));
 
 		configManager.save();
 
@@ -44,6 +45,7 @@ public class CMDSet implements CommandExecutor {
 		src.sendMessage(Text.of(TextColors.YELLOW, "  - pickup: ", TextColors.WHITE, args.hasAny("pickup")));
 		src.sendMessage(Text.of(TextColors.YELLOW, "  - place: ", TextColors.WHITE, args.hasAny("place")));
 		src.sendMessage(Text.of(TextColors.YELLOW, "  - use: ", TextColors.WHITE, args.hasAny("use")));
+		src.sendMessage(Text.of(TextColors.YELLOW, "  - reason: ", TextColors.WHITE, args.hasAny("reason")));
 
 		return CommandResult.success();
 	}

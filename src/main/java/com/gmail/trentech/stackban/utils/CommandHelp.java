@@ -46,7 +46,8 @@ public class CommandHelp {
 					.addArgument(Argument.of("[--modify]", "Allow modifying banned item"))
 					.addArgument(Argument.of("[--pickup]", "Allow pickup of banned item"))
 					.addArgument(Argument.of("[--place]", "Allowing placing banned item"))
-					.addArgument(Argument.of("[--use]", "Allowing interacting with banned item"));
+					.addArgument(Argument.of("[--use]", "Allowing interacting with banned item"))
+					.addArgument(Argument.of("[--reason]", "The reaosn for the banning of specified item"));
 			
 			Help sbanSet = new Help("sban set", "set", "Set item in ban list. All actions are banned by default. To unban action add corresponding flag. set <world> to 'global' to ban in all worlds")
 					.setPermission("stackban.cmd.sban.set")

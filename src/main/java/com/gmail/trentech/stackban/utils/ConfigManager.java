@@ -47,7 +47,7 @@ public class ConfigManager {
 	public static ConfigManager init() {
 		return init("config");
 	}
-	
+
 	public static ConfigManager init(String configName) {
 		ConfigManager configManager = new ConfigManager(configName);
 		CommentedConfigurationNode config = configManager.getConfig();
@@ -70,7 +70,9 @@ public class ConfigManager {
 				node.getNode(ItemTypes.STONE.getId(), "hold").setValue(false);
 				node.getNode(ItemTypes.STONE.getId(), "pickup").setValue(false);
 				node.getNode(ItemTypes.STONE.getId(), "drop").setValue(false);
+				node.getNode(ItemTypes.STONE.getId(), "reason").setValue("This is a testy Reason").setComment("Test123");
 			}
+
 		}
 		
 		configManager.save();

@@ -3,6 +3,7 @@ package com.gmail.trentech.stackban;
 import java.util.List;
 import java.util.Optional;
 
+import ninja.leaping.configurate.objectmapping.serialize.ConfigSerializable;
 import org.spongepowered.api.Sponge;
 import org.spongepowered.api.block.BlockSnapshot;
 import org.spongepowered.api.block.BlockTypes;
@@ -98,8 +99,10 @@ public class EventListener {
 			if (isBanned(player, itemStack, Action.MODIFY)) {
 				log(player, itemStack, Action.MODIFY);
 				String itemType = itemStack.getItem().getId();
+				World world = player.getWorld();
+				ConfigurationNode config = ConfigManager.get(world.getName()).getConfig();
 
-				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : ", TextColors.RED , itemType));
+				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : ", TextColors.RED , itemType, TextColors.GOLD, "Reason :", config.getNode("reason")));
 
 				event.setCancelled(true);
 			}
@@ -129,8 +132,10 @@ public class EventListener {
 			if (isBanned(player, itemStack, Action.BREAK)) {
 				log(player, itemStack, Action.BREAK);
 				String itemType = itemStack.getItem().getId();
+				World world = player.getWorld();
+				ConfigurationNode config = ConfigManager.get(world.getName()).getConfig();
 
-				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : ", TextColors.RED , itemType));
+				player.sendMessage(Text.of(TextColors.RED, "This item is banned : ", TextColors.GREEN , itemType, Text.NEW_LINE, TextColors.RED, " Reason :", config.getNode("reason").getString()));
 
 				event.setCancelled(true);
 			}
@@ -200,8 +205,10 @@ public class EventListener {
 			if (isBanned(player, itemStack, Action.PICKUP)) {
 				log(player, itemStack, Action.PICKUP);
 				String itemType = itemStack.getItem().getId();
+				World world = player.getWorld();
+				ConfigurationNode config = ConfigManager.get(world.getName()).getConfig();
 
-				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : ", TextColors.RED , itemType));
+				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : ", TextColors.RED , itemType, TextColors.GOLD, " Reason :", config.getNode("reason").getString()));
 
 				Sponge.getScheduler().createTaskBuilder().delayTicks(2).execute(c -> transaction.getSlot().clear()).submit(Main.getPlugin());
 			}

@@ -66,8 +66,9 @@ public class EventListener {
 
 			if (isBanned(player, itemStack, Action.PLACE)) {
 				log(player, itemStack, Action.PLACE);
+				String itemType = itemStack.getItem().getId();
 
-				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned :" + TextColors.RED, itemStack));
+				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : "+ TextColors.RED + itemType));
 
 				event.setCancelled(true);
 			}
@@ -96,8 +97,9 @@ public class EventListener {
 
 			if (isBanned(player, itemStack, Action.MODIFY)) {
 				log(player, itemStack, Action.MODIFY);
+				String itemType = itemStack.getItem().getId();
 
-				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned :" + TextColors.RED, itemStack));
+				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : "+ TextColors.RED + itemType));
 
 				event.setCancelled(true);
 			}
@@ -126,8 +128,9 @@ public class EventListener {
 
 			if (isBanned(player, itemStack, Action.BREAK)) {
 				log(player, itemStack, Action.BREAK);
+				String itemType = itemStack.getItem().getId();
 
-				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned :" + TextColors.RED, itemStack));
+				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : "+ TextColors.RED + itemType));
 
 				event.setCancelled(true);
 			}
@@ -147,8 +150,9 @@ public class EventListener {
 			if(optionalItem.isPresent()) {
 				if (isBanned(player, optionalItem.get(), Action.CRAFT)) {
 					log(player, optionalItem.get(), Action.CRAFT);
+					String itemType = optionalItem.get().getItem().getId();
 
-					player.sendMessage(Text.of(TextColors.GOLD, "This item is banned :" + TextColors.RED, optionalItem));
+					player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : "+ TextColors.RED + itemType));
 
 					transaction.setValid(false);
 				}
@@ -171,8 +175,9 @@ public class EventListener {
 
 			if (isBanned(player, itemStack, Action.HOLD)) {
 				log(player, itemStack, Action.HOLD);
+				String itemType = itemStack.getItem().getId();
 
-				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned :" + TextColors.RED, itemStack));
+				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : "+ TextColors.RED + itemType));
 
 				Sponge.getScheduler().createTaskBuilder().delayTicks(2).execute(c -> transaction.getSlot().clear()).submit(Main.getPlugin());
 			}
@@ -194,8 +199,9 @@ public class EventListener {
 
 			if (isBanned(player, itemStack, Action.PICKUP)) {
 				log(player, itemStack, Action.PICKUP);
+				String itemType = itemStack.getItem().getId();
 
-				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned :" + TextColors.RED, itemStack));
+				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : "+ TextColors.RED + itemType));
 
 				Sponge.getScheduler().createTaskBuilder().delayTicks(2).execute(c -> transaction.getSlot().clear()).submit(Main.getPlugin());
 			}
@@ -216,8 +222,9 @@ public class EventListener {
 
 			if (isBanned(player, itemStack, Action.DROP)) {
 				log(player, itemStack, Action.DROP);
+				String itemType = itemStack.getItem().getId();
 
-				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned :" + TextColors.RED, itemStack));
+				player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : "+ TextColors.RED + itemType));
 
 				event.setCancelled(true);
 			}
@@ -241,8 +248,9 @@ public class EventListener {
 
 		if (isBanned(player, itemStack, Action.USE)) {
 			log(player, itemStack, Action.USE);
+			String itemType = itemStack.getItem().getId();
 
-			player.sendMessage(Text.of(TextColors.GOLD, "This item is banned :" + TextColors.RED, itemStack));
+			player.sendMessage(Text.of(TextColors.GOLD, "This item is banned : "+ TextColors.RED + itemType));
 
 			event.setCancelled(true);
 		}
